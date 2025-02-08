@@ -40,4 +40,7 @@ Dēļa biezums ir 3.5mm , garums ir 415mm, platums 295mm
 Robota [roka](https://www.thingiverse.com/thing:360108) kontrolējama ar ESP32 Wi-Fi serveri un Arduino Nano.
 4 servo: 1 rotācijai, 2 rokas daļām un 1 spīlēm
 
+# V2
 
+No longer is any code required on the Arduino Nano, it is just there for 5v delivery to the servos. 
+The ESP32 controls all the actions, and also creates a Wi-Fi AP for connection to the web server.

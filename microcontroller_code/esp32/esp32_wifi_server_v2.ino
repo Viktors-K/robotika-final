@@ -116,10 +116,6 @@ void loop() {
 			if (header.indexOf("GET /move/h-neg") >= 0) { servoHand.moveBy(10); Serial.println("Hand opened by 10 degrees.");}
 			if (header.indexOf("GET /move/h-pos") >= 0) { servoHand.moveBy(-10); Serial.println("Hand closed by 10 degrees.");}
 			
-			
-			
-			
-			
 			client.println("<!DOCTYPE html><html><head>");
 			client.println("<title>Robot Arm Control</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
 			client.println("<style>");
@@ -129,8 +125,6 @@ void loop() {
 			client.println(".column { display: flex; flex-direction: column; align-items: center; gap: 20px; background: #2a2a2a; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); width: 300px; }");
 			client.println(".button, .arrow-btn { background-color: #FF6F00; border: none; color: white; padding: 14px 36px; font-size: 20px; cursor: pointer; border-radius: 12px; transition: 0.3s; }");
 			client.println(".button:hover, .arrow-btn:hover { background-color: #cc5500; transform: scale(1.05); }");
-			client.println(".button2 { background-color: #444; }");
-			client.println(".button2:hover { background-color: #666; }");
 			client.println(".arrow-grid { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; align-items: center; }");
 			client.println(".arrow-btn { padding: 10px; font-size: 18px; width: 60px; height: 60px; background-color: #FF6F00; border-radius: 12px; transition: 0.3s; }");
 			client.println(".arrow-btn:hover { background-color: #cc5500; }");
@@ -151,21 +145,22 @@ void loop() {
 			client.println("<p><a href=\"/right/sweep\"><button class=\"button\">Sweep</button></a></p>"); 
 			client.println("<p>Hand Servo</p>");
 			client.println("<p><a href=\"/hand/sweep\"><button class=\"button\">Sweep</button></a></p>");
-
+			//Manual control buttons
             client.println("</div>");
             client.println("<div class='column'>");
             client.println("<p><strong>Manual Control</strong></p>");
             client.println("<div class='arrow-grid'>");
-            client.println("<div></div> <a href='/move/y-pos'><button class='arrow-btn'>▲</button></a> <div></div>");
+            client.println("<a href='/move/r-neg'><button class='arrow-btn'>↺</button></a> <a href='/move/y-pos'><button class='arrow-btn'>▲</button></a> <a href='/move/r-pos'><button class='arrow-btn'>↻</button></a>");
             client.println("<a href='/move/x-neg'><button class='arrow-btn'>◄</button></a> <div></div> <a href='/move/x-pos'><button class='arrow-btn'>►</button></a>");
-            client.println("<div></div> <a href='/move/y-neg'><button class='arrow-btn'>▼</button></a> <div></div>");
+            client.println("<a href='/move/h-neg'><button class='arrow-btn'>❮</button></a> <a href='/move/y-neg'><button class='arrow-btn'>▼</button></a> <a href='/move/h-pos'><button class='arrow-btn'>❯</button></a>");
             client.println("</div>");
+			// info box
             client.println("<div class='info-box'>");
             client.println("<p><strong>Servo Positions</strong></p>");
             client.println("<p>Bottom: " + String(servoBottom.getPosition()) + "°</p><p>Left: " + String(servoLeft.getPosition()) + "°</p><p>Right: " + String(servoRight.getPosition()) + "°</p><p>Hand: " + String(servoHand.getPosition()) + "°</p>");
             client.println("<hr><p><strong>Server IP:</strong> " + WiFi.softAPIP().toString() + "</p>");
             client.println("</div></div></div>");
-            client.println("<footer class='footer'><p>Filips Biete, Viktors Kočetoks 12.EI</p></footer>");
+            client.println("<footer class='footer'><p>Viktors Kočetoks, Filips Biete 12.EI</p></footer>");
             client.println("</body></html>");
 
             client.println();
