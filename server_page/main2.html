@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Robot Arm Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html { font-family: Helvetica, Arial, sans-serif; text-align: center; background: linear-gradient(to bottom, #121212, #1e1e1e); color: white; }
+      h1 { color: #FF6F00; margin-bottom: 10px; }
+      .container { display: flex; justify-content: center; gap: 100px; padding: 30px; max-width: 900px; margin: auto; }
+      .column { display: flex; flex-direction: column; align-items: center; gap: 20px; background: #2a2a2a; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); width: 300px; }
+      .button { background-color: #FF6F00; border: none; color: white; padding: 14px 36px; font-size: 20px; cursor: pointer; border-radius: 12px; transition: 0.3s; }
+      .arrow-btn { background-color: #FF6F00; border: none; color: white; padding: 10px; font-size: 18px; width: 60px; height: 60px; border-radius: 12px; transition: 0.3s; }
+      .arrow-grid { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; align-items: center; }
+      .button:hover, .arrow-btn:hover { background-color: #cc5500; transform: scale(1.05); }
+      .arrow-grid { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; align-items: center; }
+      .arrow-btn { padding: 10px; font-size: 18px; width: 60px; height: 60px; background-color: #FF6F00; border-radius: 12px; transition: 0.3s; }
+      .arrow-btn:hover { background-color: #cc5500; }
+      .info-box { margin-top: 20px; padding: 15px; background: #333; border-radius: 10px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); width: 100%; max-width: 250px; text-align: left; color: white; }
+      .footer { margin-top: 20px; font-size: 14px; color: #aaa; }
+    </style>
+  </head>
+  <body>
+    <h1>ESP32 Robot Arm Control</h1>
+    <div class="container">
+      <div class="column">
+		<p><strong>Sweep Control</strong></p>
+        <p>Bottom Servo</p>
+        <p><a href="/bottom/sweep"><button class="button">Sweep</button></a></p>
+        <p>Left Servo</p>
+        <p><a href="/left/sweep"><button class="button">Sweep</button></a></p>
+        <p>Right Servo</p>
+        <p><a href="/right/sweep"><button class="button">Sweep</button></a></p> 
+        <p>Hand Servo</p>
+        <p><a href="/hand/sweep"><button class="button">Sweep</button></a></p>
+      </div>
+      <div class="column">
+        <p><strong>Manual Control</strong></p>
+        <div class="arrow-grid">
+          <a href='/move/r-neg'><button class='arrow-btn'>↺</button></a> <a href='/move/y-pos'><button class='arrow-btn'>▲</button></a> <a href='/move/r-pos'><button class='arrow-btn'>↻</button></a>
+          <a href='/move/x-neg'><button class='arrow-btn'>◄</button></a><div></div> <a href='/move/x-pos'><button class='arrow-btn'>►</button></a>
+          <a href='/move/h-neg'><button class='arrow-btn'>❮</button></a> <a href='/move/y-neg'><button class='arrow-btn'>▼</button></a> <a href='/move/h-pos'><button class='arrow-btn'>❯</button></a>
+        </div>
+        <div class="info-box">
+          <p><strong>Servo Positions</strong></p>
+          <p>Bottom: POSITION°</p>
+          <p>Left: POSITION°</p>
+          <p>Right: POSITION°</p>
+          <p>Hand: POSITION°</p>
+          <hr>
+          <p><strong>Server IP:</strong> IP_ADDRESS</p>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><p>Viktors Kočetoks, Filips Biete 12.EI</p></footer>
+  </body>
+</html>
