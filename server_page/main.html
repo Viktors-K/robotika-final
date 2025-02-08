@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robot Arm Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+	<style>
+		html { font-family: Helvetica, Arial, sans-serif; text-align: center; background: linear-gradient(to bottom, #121212, #1e1e1e); color: white; }
+		h1 { color: #FF6F00; margin-bottom: 10px; }
+		.container { display: flex; justify-content: center; gap: 100px; padding: 30px; max-width: 900px; margin: auto; }
+		.column { display: flex; flex-direction: column; align-items: center; gap: 20px; background: #2a2a2a; padding: 20px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); width: 300px; }
+		.button, .arrow-btn { background-color: #FF6F00; border: none; color: white; padding: 14px 36px; font-size: 20px; cursor: pointer; border-radius: 12px; transition: 0.3s; }
+		.button:hover, .arrow-btn:hover { background-color: #cc5500; transform: scale(1.05); }
+		.button2 { background-color: #444; }
+		.button2:hover { background-color: #666; }
+		.arrow-grid { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; align-items: center; }
+		.arrow-btn { padding: 10px; font-size: 18px; width: 60px; height: 60px; background-color: #FF6F00; border-radius: 12px; transition: 0.3s; }
+		.arrow-btn:hover { background-color: #cc5500; }
+		.info-box { margin-top: 20px; padding: 15px; background: #333; border-radius: 10px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); width: 100%; max-width: 250px; text-align: left; color: white; }
+		.footer { margin-top: 20px; font-size: 14px; color: #aaa; }
+	</style>
+
+</head>
+<body>
+    <h1>ESP32 Robot Arm Control</h1>
+    <div class="container">
+        <div class="column">
+            <p>Bottom Servo - State <span id="bottomState"></span></p>
+            <p><a href="/bottom/on"><button class="button">ON</button></a>
+			<a href="/bottom/off"><button class="button button2">OFF</button></a></p>
+            <p>Left Servo - State <span id="leftState"></span></p>
+            <p><a href="/left/on"><button class="button">ON</button></a>
+			<a href="/left/off"><button class="button button2">OFF</button></a></p>
+            <p>Right Servo - State <span id="rightState"></span></p>
+            <p><a href="/right/on"><button class="button">ON</button></a>
+			<a href="/right/off"><button class="button button2">OFF</button></a></p>
+            <p>Hand Servo - State <span id="handState"></span></p>
+            <p><a href="/hand/on"><button class="button">ON</button></a>
+			<a href="/hand/off"><button class="button button2">OFF</button></a></p>
+        </div>
+        <div class="column">
+            <p><strong>Manual Control</strong></p>
+            <div class="arrow-grid">
+                <div></div> <a href="/move/up"><button class="arrow-btn">▲</button></a> <div></div>
+                <a href="/move/left"><button class="arrow-btn">◄</button></a> <div></div> <a href="/move/right"><button class="arrow-btn">►</button></a>
+                <div></div> <a href="/move/down"><button class="arrow-btn">▼</button></a> <div></div>
+            </div>
+            <div class="info-box">
+                <p><strong>Servo Positions</strong></p>
+                <p>Bottom: <span id="bottomPos">0°</span></p>
+                <p>Left: <span id="leftPos">0°</span></p>
+                <p>Right: <span id="rightPos">0°</span></p>
+                <p>Hand: <span id="handPos">0°</span></p>
+                <hr>
+                <p><strong>Server IP:</strong> <span id="serverIP">192.168.4.1</span></p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Viktors Kočetoks, Filips Biete 12.EI</p>
+    </footer>
+</body>
+</html>

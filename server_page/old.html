@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <style>
+        html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center; }
+        .button { background-color: #4CAF50; border: none; color: white; padding: 16px 40px;
+                  text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer; }
+        .button2 { background-color: #555555; }
+    </style>
+</head>
+<body>
+    <h1>ESP32 Servo Web Server</h1>
+
+    <p>Bottom Servo - State <span id="bottomState"></span></p>
+    <p><a href="/bottom/on"><button class="button">ON</button></a>
+    <a href="/bottom/off"><button class="button button2">OFF</button></a></p>
+
+    <p>Left Servo - State <span id="leftState"></span></p>
+    <p><a href="/left/on"><button class="button">ON</button></a>
+    <a href="/left/off"><button class="button button2">OFF</button></a></p>
+
+    <p>Right Servo - State <span id="rightState"></span></p>
+    <p><a href="/right/on"><button class="button">ON</button></a>
+    <a href="/right/off"><button class="button button2">OFF</button></a></p>
+
+    <p>Hand Servo - State <span id="handState"></span></p>
+    <p><a href="/hand/on"><button class="button">ON</button></a>
+    <a href="/hand/off"><button class="button button2">OFF</button></a></p>
+</body>
+</html>
